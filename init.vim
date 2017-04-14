@@ -2,6 +2,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 "Plug 'chriskempson/base16-vim'
 Plug 'davidhalter/jedi-vim'
+Plug 'jistr/vim-nerdtree-tabs'
 Plug 'racer-rust/vim-racer'
 Plug 'rust-lang/rust.vim'
 Plug 'severin-lemaignan/vim-minimap'
@@ -11,6 +12,14 @@ Plug 'townk/vim-autoclose'
 Plug 'vim-airline/vim-airline'
 
 call plug#end()
+
+map <C-k> <C-w><Up>
+map <C-j> <C-w><Down>
+map <C-l> <C-w><Right>
+map <C-h> <C-w><Left>
+
+map <S-j> :tabp<CR>
+map <S-k> :tabn<CR>
 
 let s:sys = system('uname -s | perl -pe "chomp"')
 
@@ -32,7 +41,7 @@ let g:racer_cmd='~/.cargo/bin/racer'
 autocmd vimenter * NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-set colorcolumn=120
+set colorcolumn=100
 set list
 set listchars=eol:~,tab:\|-,space:·
 set number
